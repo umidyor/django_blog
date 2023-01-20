@@ -1,0 +1,15 @@
+.post-entry h2{
+    color:indigo;
+    font-size: 45px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+.post-entry p{
+    color:green;
+    font-size: 20px;
+    font-family: "Times New Roman", Times, serif;
+
+}
+.post-entry h3{
+    font-size: 25px;
+    font-family: Serif;
+}
