@@ -7,4 +7,7 @@
         <p>{{post.body}}</p>
         <link rel="stylesheet" href="{% static 'css/post_detail.css' %}">
     </div>
+<p><a href="{% url 'post_edit' post.pk %}">Postni tahrirlash</a></p>
+<p><a href="{% url 'post_delete' post.pk %}">Postni o'chirish</a></p>
+
 {% endblock content %}
