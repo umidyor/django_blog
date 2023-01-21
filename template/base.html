@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>UmidyorBlog</title>
+    <title>Qiziqarliblog</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <style>
         body{
@@ -13,13 +13,49 @@
             background-size:100%;
             background-repeat: no-repeat;
         }
+        .a2{
+            position: absolute;
+            right: 10px;
+            color:red;
+            background-color:black;
+        }
+        .a1{
+            position: absolute;
+            right: 10px;
+
+            color:red;
+            background-color:black;
+        }
+        .a4{
+            color:red;
+            text-decoration: none;
+            background-color: black;
+        }
+
     </style>
 
 </head>
 <body>
     <header>
-        <h1><a href="{% url 'home' %}">UmidyorBlog</a></h1>
+        {% if user.is_authenticated %}
+            <h1><a href="{% url 'home' %}">{{user.username}}postlari!</a></h1>
+        {%else%}
+            <h1><a href="{% url 'home' %}">Qiziqarlipostlar!</a></h1><h1 style="color:green; position: absolute;right:25cm;">(homepage)</h1><br><br>
+
+
+        {% endif %}
     </header>
+
+    {% if user.is_authenticated %}
+        <p style = "color:#FFFF00; font-size:20px">Xush kelibsiz, {{user.username}}</p>
+        <p><a class="a4" href="{%url 'logout' %}">Chiqib ketish(logout)</a></p>
+    {% else %}
+    <p>
+        <a class= "a1"  href="{% url 'login' %}">Saytga kirish</a> <br> <br>
+        <a class= "a2" href="{% url 'signup' %}">Ro'yxatdan o'tish</a>
+    </p>
+
+    {% endif %}
     <div>
         {% block content %}
         {% endblock content %}
